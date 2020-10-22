@@ -1,0 +1,3 @@
+Seesaw collision bug with the stops
+death screen animation
+Canons with fps view, sm64 or smb style
