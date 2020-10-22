@@ -1,3 +1,11 @@
-Seesaw collision bug with the stops
-death screen animation
 Canons with fps view, sm64 or smb style
+Teleport pad
+Acceleration pads
+Audio
+Water mill looking thing
+Tiltable terrains where the player can't directly control itself
+Tunnels (Or retextured rails, lol)
+Angled rails
+Coins
+Score
+Settings menu
