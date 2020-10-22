@@ -7,8 +7,6 @@ public class DebugMode : MonoBehaviour
     public GameLogic gl;
     public bool isDebugOn;
     public bool noclip;
-
-    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +15,12 @@ public class DebugMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("p") & timer - Time.time <= 0)
+        if (Input.GetKeyDown("p"))
         {
-            timer = (float)(Time.time + 0.2);
             isDebugOn = !isDebugOn;
         }
-        if (Input.GetKey("n") & timer - Time.time <= 0)
+        if (Input.GetKeyDown("n"))
         {
-            timer = (float)(Time.time + 0.2);
             noclip = !noclip    ;
         }
 

@@ -10,6 +10,7 @@ public class GameLogic : MonoBehaviour
     public GameObject startPoint;
     public GameObject endPoint;
     public GameObject deathScreen;
+    public ParticleSystem deathAnim;
 
     public CameraScript cam;
     public EndScreen endScreen;
@@ -23,7 +24,7 @@ public class GameLogic : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        minY = globalGround.transform.position.y - 2;  //Death position
+        minY = globalGround.transform.position.y - 25;  //Death position
 
         if (PlayerPrefs.HasKey("checkpointX" + SceneManager.GetActiveScene().name))
         {
@@ -40,9 +41,10 @@ public class GameLogic : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("camPos" + SceneManager.GetActiveScene().name))
         {
-            cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name), false); // Place the cam back at where the player had it before dying
+            //cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name), false); // Place the cam back at where the player had it before dying
         }
         isAnimationPlaying = false;
+        deathAnim.gameObject.SetActive(false);
     }
 
     public void finish()
@@ -57,8 +59,11 @@ public class GameLogic : MonoBehaviour
         {
             return;
         }
+        deathAnim.gameObject.SetActive(true);
         deathScreen.SetActive(true);
-        PlayerPrefs.SetInt("camPos" + SceneManager.GetActiveScene().name, cam.cameraPos); // Save current cam pos
+        player.GetComponent<MeshRenderer>().enabled = false;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
+        //PlayerPrefs.SetInt("camPos" + SceneManager.GetActiveScene().name, cam.cameraPos); // Save current cam pos
         var anim = deathScreen.GetComponent<Animator>();
         isAnimationPlaying = true;
         Debug.Log(deathScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Death"));
@@ -72,7 +77,6 @@ public class GameLogic : MonoBehaviour
         {
             death();
         }
-        Debug.Log(wait);
         if (wait < Time.time) 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

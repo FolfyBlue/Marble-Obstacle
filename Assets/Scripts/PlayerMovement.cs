@@ -5,17 +5,17 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
 
     public float speed = 0.01f;
-    public CameraScript cam;
+    public Transform cam;
     public float gravity = 10;
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        var fwd = cam.transform.forward; //Fwd and right for the player is the camera's facing forward and right
+        var fwd = cam.forward; //Fwd and right for the player is the camera's facing forward and right
         fwd.y = 0;
         fwd = fwd.normalized;
 
-        var right = cam.transform.right;
+        var right = cam.right;
         right.y = 0;
         right = right.normalized;
 

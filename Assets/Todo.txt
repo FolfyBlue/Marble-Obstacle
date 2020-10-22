@@ -9,3 +9,5 @@ Angled rails
 Coins
 Score
 Settings menu
+
+Player death stops camera, makes player invisible, and displays death particles
