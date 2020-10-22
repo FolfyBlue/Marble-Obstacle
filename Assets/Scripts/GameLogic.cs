@@ -66,7 +66,6 @@ public class GameLogic : MonoBehaviour
         //PlayerPrefs.SetInt("camPos" + SceneManager.GetActiveScene().name, cam.cameraPos); // Save current cam pos
         var anim = deathScreen.GetComponent<Animator>();
         isAnimationPlaying = true;
-        Debug.Log(deathScreen.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Death"));
         wait = Time.time + anim.GetCurrentAnimatorStateInfo(0).length;
     }
 

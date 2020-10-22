@@ -6,22 +6,29 @@ public class CameraScript : MonoBehaviour
     private List<Transform> viewPoints;
     private Transform cam;
     private int target;
-    private int max = 0;
+    private int max = -1;
+    private bool curDebugMode;
 
     public GameObject player;
     public int moveDelay = 100;
+    public DebugMode debugMode;
+
     private void Start()
     {
-        viewPoints = new List<Transform>(transform.childCount-1);
+        curDebugMode = debugMode.isDebugOn;
+        viewPoints = new List<Transform>(transform.childCount - 1);
         foreach (Transform child in transform)
-        {
-            viewPoints.Add(child);
-        }
-            foreach (Transform child in transform)
         {
             if (child.gameObject.name != "Camera")
             {
-                Debug.Log(int.Parse(child.gameObject.name));
+                viewPoints.Add(child);
+            }
+        }
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.name != "Camera")
+            {
                 viewPoints[int.Parse(child.gameObject.name)] = child;
                 max++;
             }
@@ -34,6 +41,15 @@ public class CameraScript : MonoBehaviour
 
     private void Update()
     {
+        if (curDebugMode != debugMode.isDebugOn)
+        {
+            curDebugMode = debugMode.isDebugOn;
+            foreach (Transform child in viewPoints)
+            {
+                child.gameObject.GetComponent<MeshRenderer>().enabled = debugMode.isDebugOn;
+            }
+        }
+
         cam.LookAt(player.transform.position);
 
         if (Input.GetKeyDown("q"))
@@ -45,16 +61,16 @@ public class CameraScript : MonoBehaviour
             target--;
         }
 
-        if(target > max)
+        if (target > max)
         {
             target = 0;
-        } else if (target < 0) {
+        }
+        else if (target < 0)
+        {
             target = max;
         }
 
-        Debug.Log(viewPoints[target].gameObject.name);
-        Debug.Log(target);
+        viewPoints[target].GetComponent<MeshRenderer>().enabled = debugMode.isDebugOn;
         cam.position = Vector3.MoveTowards(cam.position, viewPoints[target].position, moveDelay * Time.deltaTime); //Move smoothly towards the poisition
-
     }
 }

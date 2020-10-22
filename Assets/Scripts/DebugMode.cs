@@ -10,6 +10,7 @@ public class DebugMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDebugOn = PlayerPrefs.GetInt("isDebugOn") == 1;
     }
 
     // Update is called once per frame
@@ -18,10 +19,11 @@ public class DebugMode : MonoBehaviour
         if (Input.GetKeyDown("p"))
         {
             isDebugOn = !isDebugOn;
+            PlayerPrefs.SetInt("isDebugOn", isDebugOn ? 1 : 0);
         }
         if (Input.GetKeyDown("n"))
         {
-            noclip = !noclip    ;
+            noclip = !noclip;
         }
 
 
