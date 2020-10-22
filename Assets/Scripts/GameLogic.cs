@@ -41,7 +41,7 @@ public class GameLogic : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("camPos" + SceneManager.GetActiveScene().name))
         {
-            //cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name), false); // Place the cam back at where the player had it before dying
+            cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name)); // Place the cam back at where the player had it before dying
         }
         isAnimationPlaying = false;
         deathAnim.gameObject.SetActive(false);

@@ -39,6 +39,11 @@ public class CameraScript : MonoBehaviour
         }
     }
 
+    public void setPos(int pos)
+    {
+        target = pos;
+    }
+
     private void Update()
     {
         if (curDebugMode != debugMode.isDebugOn)
