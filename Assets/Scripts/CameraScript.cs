@@ -15,7 +15,7 @@ public class CameraScript : MonoBehaviour
 
     private void Start()
     {
-        curDebugMode = debugMode.isDebugOn;
+        curDebugMode = true;
         viewPoints = new List<Transform>(transform.childCount - 1);
         foreach (Transform child in transform)
         {
@@ -46,7 +46,7 @@ public class CameraScript : MonoBehaviour
             curDebugMode = debugMode.isDebugOn;
             foreach (Transform child in viewPoints)
             {
-                child.gameObject.GetComponent<MeshRenderer>().enabled = debugMode.isDebugOn;
+                child.gameObject.GetComponent<MeshRenderer>().enabled = curDebugMode;
             }
         }
 

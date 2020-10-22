@@ -8,6 +8,7 @@ Tunnels (Or retextured rails, lol)
 Angled rails
 Coins
 Score
+HUD
 Settings menu
 
-Player death stops camera, makes player invisible, and displays death particles
+Replace death particles by shattered marble
