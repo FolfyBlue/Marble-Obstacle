@@ -334,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 2499757198612634312, guid: 8ef255531eaab284d9667bc76d491fa3,
         type: 3}
       propertyPath: m_Name
-      value: Checkpoint0 (1)
+      value: Checkpoint1
       objectReference: {fileID: 0}
     - target: {fileID: 2499757198612634314, guid: 8ef255531eaab284d9667bc76d491fa3,
         type: 3}
@@ -2554,6 +2554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd6ea5c16c1004296c0ced7f96064e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camCheckpoint: 5
 --- !u!1 &1478362012
 GameObject:
   m_ObjectHideFlags: 0
@@ -8179,6 +8180,11 @@ PrefabInstance:
       propertyPath: gameLogic
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3067747948799982541, guid: fee247b83aecc4a4f9f92446e686f4a1,
+        type: 3}
+      propertyPath: camCheckpoint
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3067747948799982542, guid: fee247b83aecc4a4f9f92446e686f4a1,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -9121,7 +9127,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1981428517}
     - target: {fileID: 8402418514982770227, guid: e423ca7c97738fd4d88cdab2233f7b87,
         type: 3}
       propertyPath: endScreen

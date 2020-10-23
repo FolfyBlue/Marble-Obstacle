@@ -580,10 +580,18 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: 
+    13: 
+    14: 
   platformArchitecture: {}
-  scriptingBackend: {}
-  il2cppCompilerConfiguration: {}
+  scriptingBackend:
+    Standalone: 0
+    WebGL: 1
+    Windows Store Apps: 1
+  il2cppCompilerConfiguration:
+    WebGL: 0
+    Windows Store Apps: 0
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
@@ -598,9 +606,9 @@ PlayerSettings:
   metroPackageVersion: 
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: FolfyBlue
-  metroCertificateIssuer: FolfyBlue
-  metroCertificateNotAfter: 00ac43c451c1d701
+  metroCertificateSubject: Folfy Blue
+  metroCertificateIssuer: Folfy Blue
+  metroCertificateNotAfter: 80b4824ed1c7d701
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: 

@@ -10,5 +10,5 @@ Coins
 Score
 HUD
 Settings menu
-
+Mobile support
 Replace death particles by shattered marble
