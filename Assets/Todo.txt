@@ -1,0 +1,14 @@
+Canons with fps view, sm64 or smb style
+Teleport pad
+Acceleration pads
+Audio
+Water mill looking thing
+Tiltable terrains where the player can't directly control itself
+Tunnels (Or retextured rails, lol)
+Angled rails
+Coins
+Score
+HUD
+Settings menu
+Mobile support
+Replace death particles by shattered marble
