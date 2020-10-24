@@ -1,20 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class yeet : MonoBehaviour
 {
     public float yeetPower;
     public bool toYeetOrNot;
     private GameObject arm;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         arm = transform.Find("Arm").gameObject;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (toYeetOrNot)
         {

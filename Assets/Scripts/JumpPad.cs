@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
     public float force;
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.GetComponent<Collider>().gameObject.name == "Player")

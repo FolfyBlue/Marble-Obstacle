@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
@@ -76,9 +75,9 @@ public class GameLogic : MonoBehaviour
         {
             death();
         }
-        if (wait < Time.time) 
+        if (wait < Time.time)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-} 
+}

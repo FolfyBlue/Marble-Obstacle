@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class checkTrigger : MonoBehaviour
 {
     public bool collisionEnter;
+    private bool enterCheck;
     public bool collisionExit;
     public bool collisionStay;
     public string objName;
+
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider collision)
     {
@@ -33,6 +33,15 @@ public class checkTrigger : MonoBehaviour
         if (collision.GetComponent<Collider>().gameObject.name == objName)
         {
             collisionStay = true;
+            if (enterCheck)
+            {
+                collisionEnter = false;
+                enterCheck = false;
+            }
+            if (collisionEnter)
+            {
+                enterCheck = true;
+            }
         }
     }
 }

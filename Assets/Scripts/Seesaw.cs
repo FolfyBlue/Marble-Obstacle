@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Seesaw : MonoBehaviour
 {
     public GameObject player;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         var max = transform.Find("Max").gameObject;
         var max2 = transform.Find("Max2").gameObject;
@@ -19,8 +16,7 @@ public class Seesaw : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }

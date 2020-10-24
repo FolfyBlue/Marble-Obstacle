@@ -1,20 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DebugMode : MonoBehaviour
 {
     public GameLogic gl;
     public bool isDebugOn;
     public bool noclip;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         isDebugOn = PlayerPrefs.GetInt("isDebugOn") == 1;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown("p"))
         {
@@ -25,7 +24,6 @@ public class DebugMode : MonoBehaviour
         {
             noclip = !noclip;
         }
-
 
         gl.player.GetComponent<Rigidbody>().isKinematic = noclip;
         if (noclip)
@@ -73,4 +71,3 @@ public class DebugMode : MonoBehaviour
         }
     }
 }
- 

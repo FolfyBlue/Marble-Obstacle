@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     private int max = -1;
     private bool curDebugMode;
 
+    public bool doneMoving;
     public GameObject player;
     public int moveDelay = 100;
     public DebugMode debugMode;
@@ -41,6 +42,7 @@ public class CameraScript : MonoBehaviour
 
     public void setPos(int pos)
     {
+        doneMoving = false;
         target = pos;
     }
 
@@ -77,5 +79,7 @@ public class CameraScript : MonoBehaviour
 
         viewPoints[target].GetComponent<MeshRenderer>().enabled = debugMode.isDebugOn;
         cam.position = Vector3.MoveTowards(cam.position, viewPoints[target].position, moveDelay * Time.deltaTime); //Move smoothly towards the poisition
+
+        doneMoving = (cam.position == viewPoints[target].position);
     }
 }

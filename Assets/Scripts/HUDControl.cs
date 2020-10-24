@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,8 +12,9 @@ public class HUDControl : MonoBehaviour
 
     private GameObject settings;
     private bool fullscreen;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //SETTINGS SECTION
         settingsBtn.onClick.AddListener(SettingsPopup);
@@ -39,7 +38,7 @@ public class HUDControl : MonoBehaviour
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
-        } 
+        }
         else
         {
             Application.Quit();
@@ -49,9 +48,10 @@ public class HUDControl : MonoBehaviour
     private void fullscreenMode()
     {
         Screen.fullScreen = !Screen.fullScreen;
-        PlayerPrefs.SetInt("fullscreen",Screen.fullScreen ? 1 : 0);
+        PlayerPrefs.SetInt("fullscreen", Screen.fullScreen ? 1 : 0);
         return;
     }
+
     private void closeSettingsPopup()
     {
         settings.SetActive(false);
@@ -71,7 +71,7 @@ public class HUDControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
     }
 }

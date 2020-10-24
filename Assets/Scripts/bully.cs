@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class bully : MonoBehaviour
 {
@@ -17,8 +14,9 @@ public class bully : MonoBehaviour
     private Vector3 goal;
     private bool move;
     private float curSpeed;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         entity = transform.Find("entity").gameObject;
         area = transform.Find("area").gameObject;
@@ -29,7 +27,7 @@ public class bully : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         area.GetComponentInChildren<MeshRenderer>().enabled = debugMode.isDebugOn;
         homeObj.gameObject.GetComponentInChildren<MeshRenderer>().enabled = debugMode.isDebugOn;
