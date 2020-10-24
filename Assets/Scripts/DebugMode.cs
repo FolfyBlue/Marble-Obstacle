@@ -5,24 +5,32 @@ public class DebugMode : MonoBehaviour
     public GameLogic gl;
     public bool isDebugOn;
     public bool noclip;
+    public float noclipSpeed;
+    private Controls controls;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        controls = new Controls();
+    }
+
     private void Start()
     {
         isDebugOn = PlayerPrefs.GetInt("isDebugOn") == 1;
+        controls.Debug.Enable();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown("p"))
+        if (controls.Debug.DebugView.triggered)
         {
             isDebugOn = !isDebugOn;
             PlayerPrefs.SetInt("isDebugOn", isDebugOn ? 1 : 0);
         }
-        if (Input.GetKeyDown("n"))
+        if (controls.Debug.Noclip.triggered)
         {
             noclip = !noclip;
+            var rb = gl.player.GetComponent<Rigidbody>();
+            rb.isKinematic = noclip;
         }
 
         gl.player.GetComponent<Rigidbody>().isKinematic = noclip;
@@ -36,30 +44,17 @@ public class DebugMode : MonoBehaviour
             right.y = 0;
             right = right.normalized;
 
-            if (Input.GetKey("w"))
+            var input = controls.Debug.NoclipMovement.ReadValue<Vector2>();
+            var movement = new Vector3
             {
-                gl.player.transform.position += fwd;
-            }
-            if (Input.GetKey("s"))
-            {
-                gl.player.transform.position -= fwd;
-            }
-            if (Input.GetKey("a"))
-            {
-                gl.player.transform.position -= right;
-            }
-            if (Input.GetKey("d"))
-            {
-                gl.player.transform.position += right;
-            }
-            if (Input.GetKey("f"))
-            {
-                gl.player.transform.position += Vector3.up;
-            }
-            if (Input.GetKey("r"))
-            {
-                gl.player.transform.position -= Vector3.up;
-            }
+                z = input.y,
+                y = controls.Debug.NoclipFly.ReadValue<Vector2>().y,
+                x = input.x
+            }.normalized;
+
+            Debug.Log(controls.Debug.NoclipFly.ReadValue<Vector2>().y);
+
+            gl.player.transform.Translate(movement * noclipSpeed * Time.deltaTime);
         }
 
         gl.startPoint.GetComponentInChildren<MeshRenderer>().enabled = isDebugOn;

@@ -1,12 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
 
+    private Controls controls;
+
     public float speed = 0.01f;
     public Transform cam;
     public float gravity = 10;
+
+    private void Awake()
+    {
+        controls = new Controls();
+    }
+
+    private void OnEnable()
+    {
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Disable();
+    }
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -19,22 +37,11 @@ public class PlayerMovement : MonoBehaviour
         right.y = 0;
         right = right.normalized;
 
-        if (Input.GetKey("w"))
-        {
-            rb.AddForce(fwd * speed, ForceMode.VelocityChange);
-        }
-        if (Input.GetKey("s"))
-        {
-            rb.AddForce(-fwd * speed, ForceMode.VelocityChange);
-        }
-        if (Input.GetKey("a"))
-        {
-            rb.AddForce(-right * speed, ForceMode.VelocityChange);
-        }
-        if (Input.GetKey("d"))
-        {
-            rb.AddForce(right * speed, ForceMode.VelocityChange);
-        }
+        var input = controls.Player.Movement.ReadValue<Vector2>();
+
+        rb.AddForce(input.y * fwd * speed, ForceMode.VelocityChange); // Up down
+        rb.AddForce(input.x * right * speed, ForceMode.VelocityChange); // Left right
+
         rb.AddForce(Physics.gravity * gravity * rb.mass);
     }
 

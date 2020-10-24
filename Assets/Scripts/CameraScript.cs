@@ -8,11 +8,17 @@ public class CameraScript : MonoBehaviour
     private int target;
     private int max = -1;
     private bool curDebugMode;
+    private Controls controls;
 
     public bool doneMoving;
     public GameObject player;
     public int moveDelay = 100;
     public DebugMode debugMode;
+
+    private void Awake()
+    {
+        controls = new Controls();
+    }
 
     private void Start()
     {
@@ -38,6 +44,7 @@ public class CameraScript : MonoBehaviour
                 cam = child;
             }
         }
+        controls.Camera.Enable();
     }
 
     public void setPos(int pos)
@@ -59,11 +66,14 @@ public class CameraScript : MonoBehaviour
 
         cam.LookAt(player.transform.position);
 
-        if (Input.GetKeyDown("q"))
+        var goNext = controls.Camera.Next.triggered;
+        var goPrev = controls.Camera.Previous.triggered;
+
+        if (goNext)
         {
             target++;
         }
-        if (Input.GetKeyDown("e"))
+        if (goPrev)
         {
             target--;
         }
