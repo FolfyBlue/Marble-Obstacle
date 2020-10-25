@@ -1,14 +1,20 @@
-Canons with fps view, sm64 or smb style
-Teleport pad
 Acceleration pads
 Audio
 Water mill looking thing
-Tiltable terrains where the player can't directly control itself
+Tiltable terrains where the player can't directly control itself, but can move the terrain's tilt
 Tunnels (Or retextured rails, lol)
 Angled rails
 Coins
 Score
-HUD
-Settings menu
 Mobile support
 Replace death particles by shattered marble
+Gravity change SMG style using ramps 
+
+
+
+Canons with fps view, sm64 or smb style
+Canon ideas:
+Using waypoints towards where the canon is facing so the trajectory is always the same then use transform.translate, kinda like the camera
+Rotate waypoints with canon
+Canon can go up/down/left/right
+FPS view with the camera seeing what the play is, so make the player always face exterior of canon
