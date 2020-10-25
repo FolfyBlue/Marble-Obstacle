@@ -249,7 +249,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""19051203-d0f4-4cf6-a370-71f21beb856e"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -260,7 +260,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""23da367d-1999-45b5-b4df-bf9af405a6a7"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

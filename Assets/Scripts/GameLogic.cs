@@ -38,12 +38,17 @@ public class GameLogic : MonoBehaviour
         {
             player.transform.position = (startPoint.transform.position); //Place the player at the starting point
         }
-        if (PlayerPrefs.HasKey("camPos" + SceneManager.GetActiveScene().name))
-        {
-            cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name)); // Place the cam back at where the player had it before dying
-        }
         isAnimationPlaying = false;
         deathAnim.gameObject.SetActive(false);
+
+        if (PlayerPrefs.HasKey("camPos" + SceneManager.GetActiveScene().name))
+        {
+            cam.setPos(PlayerPrefs.GetInt("camPos" + SceneManager.GetActiveScene().name), false); // Place the cam back at where the player had it before dying
+        }
+        else
+        {
+            cam.setPos(0, true);
+        }
     }
 
     public void finish()

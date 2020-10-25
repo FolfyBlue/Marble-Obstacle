@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     private int max = -1;
     private bool curDebugMode;
     private Controls controls;
+    private bool force;
 
     public bool doneMoving;
     public GameObject player;
@@ -47,10 +48,11 @@ public class CameraScript : MonoBehaviour
         controls.Camera.Enable();
     }
 
-    public void setPos(int pos)
+    public void setPos(int pos, bool force)
     {
         doneMoving = false;
         target = pos;
+        force = this.force;
     }
 
     private void Update()
@@ -85,6 +87,12 @@ public class CameraScript : MonoBehaviour
         else if (target < 0)
         {
             target = max;
+        }
+
+        if (force)
+        {
+            cam.position = viewPoints[target].position;
+            force = false;
         }
 
         viewPoints[target].GetComponent<MeshRenderer>().enabled = debugMode.isDebugOn;

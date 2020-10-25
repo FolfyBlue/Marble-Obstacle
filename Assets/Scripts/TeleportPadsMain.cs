@@ -60,13 +60,13 @@ public class TeleportPadsMain : MonoBehaviour
 
             if (point1.collisionExit)
             {
-                cs.setPos(camPos1);
+                cs.setPos(camPos1, false);
                 point1.collisionExit = false;
             }
 
             if (point1.collisionEnter)
             {
-                cs.setPos(camPos2);
+                cs.setPos(camPos2, false);
             }
 
             if (point1.collisionStay)
@@ -82,12 +82,12 @@ public class TeleportPadsMain : MonoBehaviour
 
             if (point2.collisionEnter)
             { //move the camera when we enter the teleporter
-                cs.setPos(camPos1);
+                cs.setPos(camPos1, false);
             }
 
             if (point2.collisionExit)
             { //move the camera when we exit the teleporter, fix to staying inside the teleporter and the camera not moving
-                cs.setPos(camPos2);
+                cs.setPos(camPos2, false);
                 point2.collisionExit = false;
             }
 
