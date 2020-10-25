@@ -1,20 +1,51 @@
-Acceleration pads
 Audio
+	Marble rolling, hitting, etc noises
+	Background music so the player isn't bored
+	I can't manipulate audio
+
 Water mill looking thing
-Tiltable terrains where the player can't directly control itself, but can move the terrain's tilt
+	It spins when you go through it
+	Just looks cool
+
+Bonus levels
+	Tiltable terrains where the player can't directly control itself, but can move the terrain's tilt
+	I need a flipper level too, that just sounds too fun
+		Perhaps also with a score to reach
+
 Tunnels (Or retextured rails, lol)
+	Literally just retexture rails
+
 Angled rails
+	I'll probably have to use a bunch of square and create them using maths
+	Why does unity only suppot base shapes
+
 Coins
+	Neat
+	Makes  the player happy to collect things
+
 Score
+	Works with coins
+	Perhaps with time completion too
+
 Mobile support
+	Joystick on screen
+	Left and right buttons for camera
+
 Replace death particles by shattered marble
+	I don't know anything about 3d modeling
+	help
+
 Gravity change SMG style using ramps 
+	Good luck with that me
+	Really sound complicated
 
-
+Level select
+	After selecting play
+	Frames with level image in the middle
+	Background is marbles going through rails
 
 Canons with fps view, sm64 or smb style
-Canon ideas:
-Using waypoints towards where the canon is facing so the trajectory is always the same then use transform.translate, kinda like the camera
-Rotate waypoints with canon
-Canon can go up/down/left/right
-FPS view with the camera seeing what the play is, so make the player always face exterior of canon
+	Using waypoints towards where the canon is facing so the trajectory is always the same then use transform.translate, kinda like the camera
+	Rotate waypoints with canon
+	Canon can go up/down/left/right
+	FPS view with the camera seeing what the play is, so make the player always face exterior of canon
