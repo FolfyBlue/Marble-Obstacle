@@ -618,7 +618,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: Folfy Blue
   metroCertificateIssuer: Folfy Blue
-  metroCertificateNotAfter: 80753dde2dc9d701
+  metroCertificateNotAfter: 803bae222acad701
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: 
