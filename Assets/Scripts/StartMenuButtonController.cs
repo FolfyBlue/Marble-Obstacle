@@ -36,15 +36,18 @@ public class StartMenuButtonController : MonoBehaviour
         Application.Quit();
     }
 
+    private void Update()
+    {
+        exitBtn.gameObject.SetActive(!transform.Find("LevelSelectPopup").gameObject.active);
+        startBtn.gameObject.SetActive(!transform.Find("LevelSelectPopup").gameObject.active);
+        resetBtn.gameObject.SetActive(!transform.Find("LevelSelectPopup").gameObject.active);
+    }
+
     private void Play()
     {
         if (PlayerPrefs.HasKey("curLvl"))
         {
-            if (PlayerPrefs.GetInt("curLvl") < SceneManager.sceneCountInBuildSettings)
-            {
-                SceneManager.LoadScene(PlayerPrefs.GetInt("curLvl"));
-            }
-            SceneManager.LoadScene(PlayerPrefs.GetInt("curLvl") - 1);
+            transform.Find("LevelSelectPopup").gameObject.SetActive(true);
         }
         else
         {

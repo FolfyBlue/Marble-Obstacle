@@ -5,10 +5,6 @@ Audio
 	Background music so the player isn't bored
 	I can't manipulate audio
 
-Water mill looking thing
-	It spins when you go through it
-	Just looks cool
-
 Bonus levels
 	Tiltable terrains where the player can't directly control itself, but can move the terrain's tilt
 	I need a flipper level too, that just sounds too fun
@@ -19,7 +15,7 @@ Tunnels (Or retextured rails, lol)
 
 Angled rails
 	I'll probably have to use a bunch of square and create them using maths
-	Why does unity only suppot base shapes
+	Why does unity only support base shapes
 
 Coins
 	Neat
