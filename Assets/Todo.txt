@@ -33,10 +33,6 @@ Mobile support
 	Joystick on screen
 	Left and right buttons for camera
 
-Replace death particles by shattered marble
-	I don't know anything about 3d modeling
-	help
-
 Gravity change SMG style using ramps 
 	Good luck with that me
 	Really sound complicated

@@ -9,14 +9,13 @@ public class GameLogic : MonoBehaviour
     public GameObject startPoint;
     public GameObject endPoint;
     public GameObject deathScreen;
-    public ParticleSystem deathAnim;
 
     public CameraScript cam;
     public EndScreen endScreen;
 
     public Vector3 currentCheckpoint;
 
-    private bool isAnimationPlaying = false;
+    private bool ded = false;
     private float minY;
     private float wait = float.MaxValue;
 
@@ -38,8 +37,6 @@ public class GameLogic : MonoBehaviour
         {
             player.transform.position = (startPoint.transform.position); //Place the player at the starting point
         }
-        isAnimationPlaying = false;
-        deathAnim.gameObject.SetActive(false);
 
         if (PlayerPrefs.HasKey("camPos" + SceneManager.GetActiveScene().name))
         {
@@ -59,18 +56,17 @@ public class GameLogic : MonoBehaviour
 
     public void death()
     {
-        if (won | isAnimationPlaying)
+        if (won || ded)
         {
             return;
         }
-        deathAnim.gameObject.SetActive(true);
         deathScreen.SetActive(true);
         player.GetComponent<MeshRenderer>().enabled = false;
         player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
-        //PlayerPrefs.SetInt("camPos" + SceneManager.GetActiveScene().name, cam.cameraPos); // Save current cam pos
-        var anim = deathScreen.GetComponent<Animator>();
-        isAnimationPlaying = true;
-        wait = Time.time + anim.GetCurrentAnimatorStateInfo(0).length;
+        player.transform.Find("Pieces").gameObject.SetActive(true);
+        ded = true;
+        wait = Time.time + 2;
+        Debug.Log(wait);
     }
 
     // Update is called once per frame
